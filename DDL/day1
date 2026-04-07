@@ -1,0 +1,22 @@
+CREATE DATABASE chuxue;
+USE chuxue;
+
+CREATE TABLE user (
+                      id INT AUTO_INCREMENT PRIMARY KEY,
+                      username VARCHAR(50) NOT NULL,
+                      age INT
+);
+alter table user add nickname varchar(20) comment'昵称';
+                   #添加表的字段
+alter table user modify age varchar(3);
+                   #修改数据类型
+alter table user change nickname name varchar(20) comment '名字';
+                   #修改字段名和字段类型
+alter table user drop name;
+                   #删除字段;
+alter table user rename users;
+                   #修改表名
+drop table users;
+                   #直接删除表
+truncate table users;
+                   #删除表以及所有数据并重新创建表结构
