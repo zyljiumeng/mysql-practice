@@ -1,0 +1,11 @@
+use test;
+insert into text1(id, name, age, gender) VALUES (234,'李四',50,'女');
+update text1 set gender = '男' where name = '李四';
+# 1 查询年龄为 23，43的男性信息
+select * from text1 where gender = '男' and age in (23,43);
+# 2 查询性别为男，并且年龄为40-60岁的姓名为两个字的人
+select * from text1 where gender = '男' and age between 40 and 60 and name like '__';
+# 3 统计人员表中，年龄小于50岁的，男生和女生的数量
+select gender, count(*) from  text1 where age > 50 group by gender;
+# 4 查询所有年龄小于等于40岁的人员姓名和年龄，并对查询结果按年龄升序排序，如果年龄相同按id大小降序排序
+select name,age from text1 where age <= 40 group by name asc , age desc ;
